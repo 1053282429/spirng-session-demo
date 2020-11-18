@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--给标签赋值-->
+<h1 th:text="${msg1}"></h1>
+<!--给属性赋值-->
+<input type="text" th:value="${msg2}"/>
+<em th:text="${size}"></em>
+<br/>
+<!-- 字符串拼接 -->
+<span th:text="'欢迎:'+${msg1}+'访问'"></span>
+<!-- 字符串拼接,方式2 -->
+<span th:text="|欢迎:${msg1}访问|"></span>
+<hr/>
+<!-- th:if 条件成立就显示 -->
+<span th:if="${msg1=='username'}">username</span>
+<!-- th:unless 条件不成立就显示 -->
+<span th:unless="${msg2=='password'}">password</span>
+<!-- switch选择语句 -->
+<div th:switch="${size}">
+    <p th:case="30">size is 30</p>
+    <p th:case="25">size is 25</p>
+</div>
+
+</body>
+</html>

@@ -18,4 +18,8 @@ public class FirstThymeleafController {
         model.addAttribute("message",message);
         return "index";
     }
+    public String test(){
+        String str = "测试合并分支";
+        return "ok";
+    }
 }

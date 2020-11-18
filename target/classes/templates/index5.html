@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 把片段的内容插入到当前位置 -->
+<div th:insert="~{footer :: copy}"></div>
+<br/>
+<!-- 使用片段的内容替换当前标签 -->
+<div th:replace="~{footer :: copy}"></div>
+<br/>
+<!-- 保留自己的主标签，不要片段的主标签 -->
+<div th:include="~{footer :: copy}"></div>
+<hr/>
+时间：<span th:text="${#dates.format(date,'yyyy-MM-dd HH:mm:ss')}"></span><br/>
+价格：<span th:text="'$'+${#numbers.formatDecimal(price,2,3)}"></span>
+<!-- 这里的含义是 如果 atc.text 这个变量多余60个字符，后面显示...-->
+大文本：<span th:text="${#strings.abbreviate(strText,60)}"></span>
+<!-- 判断字符串是否为空 -->
+字符串：<span th:if="${!#strings.isEmpty(str2)}">str2 is not empty</span>
+<!-- 截取字符串，指定长度 -->
+<span th:text="${#strings.substring(str2,0,4)}"></span>
+</body>
+</html>
